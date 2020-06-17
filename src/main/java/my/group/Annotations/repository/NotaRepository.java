@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import my.group.Annotations.documents.Nota;
 
-public interface NotaRepository extends MongoRepository<Nota, Long> {
+public interface NotaRepository extends MongoRepository<Nota, String> {
 
 }

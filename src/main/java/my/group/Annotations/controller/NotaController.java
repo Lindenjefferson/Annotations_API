@@ -36,7 +36,7 @@ public class NotaController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Nota> findById(@PathVariable(name = "id") long id){
+	public ResponseEntity<Nota> findById(@PathVariable(name = "id") String id){
 		Optional<Nota> nota = notaService.buscarPorId(id);
 		if(nota.isPresent()) {
 			return new ResponseEntity<Nota>(nota.get(), HttpStatus.OK);
@@ -51,7 +51,7 @@ public class NotaController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Nota> update(@RequestBody Nota nota, @PathVariable(name = "id") long id){
+	public ResponseEntity<Nota> update(@RequestBody Nota nota, @PathVariable(name = "id") String id){
 		Optional<Nota> nota0 = notaService.buscarPorId(id);
 		if(nota0.isPresent()) {
 			nota.setId(nota0.get().getId());
@@ -62,7 +62,7 @@ public class NotaController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Nota> delete(@PathVariable(name = "id") long id){
+	public ResponseEntity<Nota> delete(@PathVariable(name = "id") String id){
 		Optional<Nota> nota = notaService.buscarPorId(id);
 		if(nota.isPresent()) {
 			notaService.deletar(id);

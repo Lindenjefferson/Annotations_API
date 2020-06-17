@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class Nota {
 	
 	@Id
-	private long id;
+	private String id;
 	private String titulo;
 	private String conteudo;
 	private String marcador;

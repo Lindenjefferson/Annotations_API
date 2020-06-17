@@ -19,7 +19,7 @@ public class NotaService {
 		return notaRepository.findAll();
 	}
 	
-	public Optional<Nota> buscarPorId(long id) {
+	public Optional<Nota> buscarPorId(String id) {
 		return notaRepository.findById(id);
 	}
 	
@@ -27,7 +27,7 @@ public class NotaService {
 		return notaRepository.save(nota);
 	}
 	
-	public void deletar(long id) {
+	public void deletar(String id) {
 		notaRepository.deleteById(id);
 	}
 	
