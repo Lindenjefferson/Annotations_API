@@ -44,6 +44,16 @@ public class NotaController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@GetMapping("busca/{titulo}")
+	public ResponseEntity<List<Nota>> findByTitle(@PathVariable(name = "titulo") String titulo){
+		List<Nota> notas = notaService.buscarTitulo(titulo);
+		if (notas.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Nota>>(notas, HttpStatus.OK);
+		}
+	}
 	
 	@PostMapping
 	public ResponseEntity<Nota> save(@RequestBody Nota nota){

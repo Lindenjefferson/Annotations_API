@@ -18,6 +18,10 @@ public class NotaService {
 	public List<Nota> listarTodos() {
 		return notaRepository.findAll();
 	}
+
+	public List<Nota> buscarTitulo(String titulo) {
+		return notaRepository.findByTituloContainingIgnoreCase(titulo);
+	}
 	
 	public Optional<Nota> buscarPorId(String id) {
 		return notaRepository.findById(id);
